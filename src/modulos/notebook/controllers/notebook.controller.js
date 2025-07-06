@@ -1,7 +1,7 @@
 const NotebookModel =  require('../models/notebook.models')
 
 class NotebookController {
-    static async criar(req, res){
+    static async registrar(req, res){
         try {
             const { equipamento_nome, tipo, numero_patrimonio, usuario_responsavel, status } = req.body
             if( !equipamento_nome || !tipo || !numero_patrimonio || !usuario_responsavel || !status ){
@@ -77,3 +77,5 @@ class NotebookController {
         }
     }
 }
+
+module.exports = NotebookController
