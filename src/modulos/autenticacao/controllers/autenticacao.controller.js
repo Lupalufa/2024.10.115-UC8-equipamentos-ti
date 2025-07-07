@@ -30,7 +30,7 @@ class AutenticacaoController {
                 return res.status(400).json({ msg: 'É necessario informar o E-mail e a senha para efetuar o login' })
             }
             const usuario = await Usuario.findOne({
-                where: { id }
+                where: { email }
             });
             if (!usuario) {
                 return res.status(401).json({ msg: "Usuário não encontrado!" })
@@ -55,7 +55,7 @@ class AutenticacaoController {
                 maxAge: 1 * 24
             })
 
-            res.status(200); json({
+            res.status(200).json({
                 tokenAcesso,
                 nome: usuario.nome,
                 id: usuario.id,
@@ -63,7 +63,7 @@ class AutenticacaoController {
                 papel: 'usuario'
             })
         } catch (error) {
-            res.status(500).json({ msg: 'Erro do servidor. Tente novamente mais tarde!' })
+            res.status(500).json({ msg: 'Erro do servidor. Tente novamente mais tarde!', error: error.message})
         }
     }
 

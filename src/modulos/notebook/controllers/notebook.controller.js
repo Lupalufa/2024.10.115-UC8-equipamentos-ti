@@ -10,7 +10,7 @@ class NotebookController {
             const notebook = await NotebookModel.create({equipamento_nome, tipo, numero_patrimonio, usuario_responsavel, status})
             res.status(201).json(notebook)
         } catch (error) {
-            res.status(500).json({ msg: "Erro ao cadastrar um novo notebook. Tente novamente mais tarde!"})
+            res.status(500).json({ msg: "Erro ao cadastrar um novo notebook. Tente novamente mais tarde!", error: error.message})
         }
     }
 
@@ -29,13 +29,13 @@ class NotebookController {
     static async listarNotebooksPorId(req,res){
         try {
             const numero_patrimonio = req.params.numero_patrimonio
-            const notebook = await NotebookModel.findByPk({ numero_patrimonio })
+            const notebook = await NotebookModel.findByPk( numero_patrimonio )
             if(!notebook){
                 return res.status(404).json({msg: "Não há esse notebook especifico registrado! Confira as credenciais"})
             }
             res.status(200).json(notebook)
         } catch (error) {
-            res.status(500).json({ msg: "Erro ao listar um novo notebook. Tente novamente mais tarde!"})
+            res.status(500).json({ msg: "Erro ao listar um novo notebook. Tente novamente mais tarde!", error: error.message})
         }
     }
 
@@ -47,22 +47,23 @@ class NotebookController {
                 return res.status(400).json({msg: "Todos os campos devem ser preenchidos!"})
             }
             const notebookAtualizado = await NotebookModel.update(
-                {equipamento_nome: equipamento_nome, tipo: tipo, usuario_responsavel: usuario_responsavel, status: status},
+                {equipamento_nome, tipo, usuario_responsavel, status},
                 {where: {numero_patrimonio: numero_patrimonio}}
             )
             if(notebookAtualizado.length === 0){ 
                 return res.status(404).json({msg: "Notebook não encontrado!"})
             }
-            res.status(200).json(notebookAtualizado)
+                res.status(200).json(notebookAtualizado)
+
         } catch (error) {
-            res.status(500).json({ msg: "Erro ao listar um novo notebook. Tente novamente mais tarde!"})
+            res.status(500).json({ msg: "Erro ao editar o novo notebook. Tente novamente mais tarde!", error: error.message})
         }
     }
 
     static async deletarNotebook(req, res){
         try {
             const numero_patrimonio = req.params.numero_patrimonio;
-            const notebook = await NotebookModel.findByPk({ numero_patrimonio })
+            const notebook = await NotebookModel.findByPk( numero_patrimonio )
             if (!notebook){
                 return res.status(404).json({msg: "Esse notebook não foi encontrado"})
             }
@@ -73,7 +74,7 @@ class NotebookController {
             })
             res.status(200).json({msg: "Notebook deletado com sucesso!"})
         } catch (error) {
-            res.status(500).json({ msg: "Erro ao listar um novo notebook. Tente novamente mais tarde!"})
+            res.status(500).json({ msg: "Erro ao listar um novo notebook. Tente novamente mais tarde!", error: error.message})
         }
     }
 }
