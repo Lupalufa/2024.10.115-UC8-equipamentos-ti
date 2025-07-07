@@ -8,6 +8,7 @@ const Usuario = sequelize.define(
             type: DataTypes.STRING,
             allowNull: false
         },
+        // Regex de 1 Letra maiuscula e 4 digitos númerico de 1° Letra maiuscula para depois números
         id: {
             type: DataTypes.STRING,
             primaryKey: true,
@@ -26,6 +27,7 @@ const Usuario = sequelize.define(
                 isEmail: { msg: "Email Inválido"}
             }
         },
+        // Senha de minimo 8 caracter com letra maiuscula, minuscula e caracter especial
         senha: {
             type: DataTypes.STRING,
             allowNull: false,

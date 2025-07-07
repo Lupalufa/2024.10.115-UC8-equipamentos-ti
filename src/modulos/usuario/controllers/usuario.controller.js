@@ -1,3 +1,4 @@
+//Importando os Models e o Bcrypt para a criptografia da senha
 const Usuario = require("../models/usuario.models")
 const bcrypt = require('bcryptjs')
 
@@ -6,6 +7,7 @@ class UsuarioController {
         // Criando o corpo da requisição para pode receber os valores
         try {
             const { nome, id, email, senha } = req.body;
+            // Verificação se todos os campos foram preenchidos
             if( !id || !nome || !email || !senha){
                 return res.status(400).json({ msg: "Todos os campos devem ser preenchidos" })
             }
@@ -17,7 +19,7 @@ class UsuarioController {
             res.status(500).json({ msg: "Erro ao cadastrar um novo usuario. Tente novamente mais tarde!", erro: error.message})
         }
     }
-
+    // Função statica para puxar o perfil do usuario
     static async perfil (req, res){
         try {
             const { id } = req.usuario // Aqui está vindo o Token
@@ -30,6 +32,7 @@ class UsuarioController {
                 // O Exclude serve para excluir um dado em especifico e resgatar todos os outros dados
                 // { exclude: [ 'senha' ]} Por exemplo
             });
+            // Verificação para análise se foi recebido o Usuario
             if(!usuario){
                 return res.status(401).json({ msg: "Não existe esse usuário cadastrado! "});
             }

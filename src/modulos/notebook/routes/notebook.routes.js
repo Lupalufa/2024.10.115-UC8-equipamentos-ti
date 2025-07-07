@@ -2,7 +2,10 @@ const express = require('express')
 const NotebookController = require("../controllers/notebook.controller")
 const AutenticacaoMiddleware = require("../middleware/notebook.middleware")
 
+// Criando a instancia de rota com o express
 const router = express.Router()
+
+// Rotas para notebook
 
 router.post('/registrar', AutenticacaoMiddleware.autenticarToken, NotebookController.registrar)
 
