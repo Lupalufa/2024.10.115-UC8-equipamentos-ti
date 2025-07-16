@@ -1,0 +1,108 @@
+### Rota de usuário para cadastro
+POST http://localhost:3000/api/cadastrar
+Content-Type: application/json
+
+{
+  "id": 1,
+  "nome": "João da Silva",
+  "email": "joao@email.com",
+  "senha": "SenhaForte123!",
+  "papel": "admin"
+}
+
+### Rota de login do usuário
+POST http://localhost:3000/api/login
+Content-Type: application/json
+
+{
+  "email": "joao@email.com",
+  "senha": "SenhaForte123!"
+}
+
+### Rota de logout (requer token)
+POST http://localhost:3000/api/logout
+Authorization: Bearer {{access_token}}
+
+### Rota para gerar novo token (refresh)
+POST http://localhost:3000/api/refresh-token
+Content-Type: application/json
+
+{
+  "refreshToken": "{{refresh_token}}"
+}
+
+### Rota para obter perfil do usuário (requer token)
+GET http://localhost:3000/api/perfil
+Authorization: Bearer {{access_token}}
+
+### Rota para listar todos os setores (requer token)
+GET http://localhost:3000/api/setores/
+Authorization: Bearer {{access_token}}
+
+### Rota para listar um setor específico por ID (requer token)
+GET http://localhost:3000/api/setores/1
+Authorization: Bearer {{access_token}}
+
+### Rota para criar um novo setor (requer token + admin)
+POST http://localhost:3000/api/setores/
+Authorization: Bearer {{access_token}}
+Content-Type: application/json
+
+{
+  "id": 1,
+  "nome": "TI",
+  "descricao": "Tecnologia da Informação"
+}
+
+### Rota para editar um setor (requer token + admin)
+PUT http://localhost:3000/api/setores/1
+Authorization: Bearer {{access_token}}
+Content-Type: application/json
+
+{
+  "nome": "Recursos Humanos",
+  "descricao": "Departamento de RH"
+}
+
+### Rota para deletar um setor (requer token + admin)
+DELETE http://localhost:3000/api/setores/1
+Authorization: Bearer {{access_token}}
+
+### Rota para registrar notebook (requer token + admin)
+POST http://localhost:3000/api/registrar
+Authorization: Bearer {{access_token}}
+Content-Type: application/json
+
+{
+  "equipamento_nome": "Notebook Dell",
+  "tipo": "Notebook",
+  "numero_patrimonio": "NB123456",
+  "usuario_responsavel": "Maria Oliveira",
+  "status": "Ativo",
+  "setorId": 1
+}
+
+### Rota para listar todos os notebooks (colaborador, ti, admin)
+GET http://localhost:3000/api/listar
+Authorization: Bearer {{access_token}}
+
+### Rota para listar notebook por número de patrimônio (colaborador, ti, admin)
+GET http://localhost:3000/api/listar/NB123456
+Authorization: Bearer {{access_token}}
+
+### Rota para editar notebook (requer token + admin)
+PUT http://localhost:3000/api/editar/NB123456
+Authorization: Bearer {{access_token}}
+Content-Type: application/json
+
+{
+  "equipamento_nome": "Notebook Lenovo",
+  "tipo": "Notebook",
+  "usuario_responsavel": "Carlos Souza",
+  "status": "Manutenção",
+  "setorId": 2
+}
+
+### Rota para deletar notebook (requer token + admin)
+DELETE http://localhost:3000/api/deletar/NB123456
+Authorization: Bearer {{access_token}}
