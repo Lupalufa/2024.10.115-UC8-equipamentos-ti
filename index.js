@@ -4,7 +4,8 @@ const cors = require("cors")
 const { sequelize } = require("./src/config/configDB")
 const authRoute = require("./src/modulos/autenticacao/routes/autenticacao.routes")
 const usuarioRoute = require("./src/modulos/usuario/routes/usuario.routes")
-const notebookRoute = require("./src/modulos/notebook/routes/notebook.routes")
+const equipamentoRoute = require("./src/modulos/equipamento/routes/equipamento.routes")
+const setorRoute = require("./src/modulos/setor/routes/setor.route")
 
 dotenv.config();
 
@@ -18,7 +19,9 @@ app.use(cors({
 app.use(express.json());
 
 // Permite o uso do prefixo '/api/' e as rotas de notebook ent ficaria por exemplo "http://localhost:3000/api/(Rota de notebook)"
-app.use('/api/', notebookRoute)
+app.use('/api/', equipamentoRoute)
+
+app.use('/api/', setorRoute)
 
 app.use('/api/', usuarioRoute)
 

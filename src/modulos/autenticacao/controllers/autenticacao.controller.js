@@ -40,9 +40,10 @@ class AutenticacaoController {
                 return res.status(400).json({ msg: "Credenciais Inválidas" })
             }
             const dadosUsuario = {
+                id: usuario.id,
                 nome: usuario.nome,
                 email: usuario.email,
-                papel: 'usuario'
+                papel: usuario.papel
             }
             // Gerando tokens
             const tokenAcesso = AutenticacaoController.gerarTokenAcesso(dadosUsuario)
@@ -60,7 +61,7 @@ class AutenticacaoController {
                 nome: usuario.nome,
                 id: usuario.id,
                 // Posso transformar em array com varios papeis e opções
-                papel: 'usuario'
+                papel: usuario.papel
             })
         } catch (error) {
             res.status(500).json({ msg: 'Erro do servidor. Tente novamente mais tarde!', error: error.message})
@@ -80,8 +81,9 @@ class AutenticacaoController {
                     return res.status(403).json({ msg: 'Refresh token inválido!'})
                 }
                 const dadosUsuario = {
+                    id: usuario.id,
                     nome: usuario.nome,
-                    papel: 'usuario'
+                    papel: usuario.papel
                 }
                 const novoTokenAcesso = this.gerarRefreshToken(dadosUsuario)
                 res.status(200).json({ tokenAcesso: novoTokenAcesso })
