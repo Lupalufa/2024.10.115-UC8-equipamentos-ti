@@ -27,7 +27,9 @@ const Equipamento = sequelize.define(
                     args: /^[A-Z0-9\-]{8,20}/,
                     msg: 'Insira um serial válido com letras, numeros com hifens ou underline com no minimo 8 caracteres e no maximo 20 caracteres'
                 }
-            }
+            },
+            onDelete: 'CASCADE',
+            onUpdate: 'CASCADE'
         },
         usuario_responsavel: {
             type: DataTypes.STRING,
@@ -53,7 +55,8 @@ const Equipamento = sequelize.define(
             references: {
                 model: 'setor',
                 key: 'nome'
-            }
+            },
+            onUpdate: 'CASCADE'
         }
     },
     {
