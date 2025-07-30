@@ -36,7 +36,7 @@ const Equipamento = sequelize.define(
             allowNull: false,
             references: {
                 model: 'usuario',
-                key: 'id'
+                key: 'email'
             }
         },
         status: {
@@ -50,11 +50,11 @@ const Equipamento = sequelize.define(
             }
         },
         setorId: {
-            type: DataTypes.STRING,
+            type: DataTypes.UUID,
             allowNull: false,
             references: {
                 model: 'setor',
-                key: 'nome'
+                key: 'id'
             },
             onUpdate: 'CASCADE'
         }

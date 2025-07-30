@@ -57,3 +57,6 @@ Autenticação JWT (login, logout, refresh token)
 Cadastro de Usuário (com senha criptografada)
 Perfil do Usuário (protegido por token)
 CRUD de Notebooks (protegido por token)
+
+
+

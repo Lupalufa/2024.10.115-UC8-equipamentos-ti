@@ -1,5 +1,7 @@
 'use strict';
 
+const { toDefaultValue } = require('sequelize/lib/utils');
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -10,7 +12,8 @@ module.exports = {
       },
       // Regex de 1 Letra maiuscula e 4 digitos númerico de 1° Letra maiuscula para depois números
       id: {
-        type: Sequelize.STRING,
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
         primaryKey: true,
       },
       papel: {

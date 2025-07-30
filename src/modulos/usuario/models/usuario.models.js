@@ -10,14 +10,9 @@ const Usuario = sequelize.define(
         },
         // Regex de 1 Letra maiuscula e 4 digitos númerico de 1° Letra maiuscula para depois números
         id: {
-            type: DataTypes.STRING,
+            type: DataTypes.UUID,
+            defaultValue: DataTypes.UUIDV4,
             primaryKey: true,
-            validate: {
-                is: {
-                    args:/^[A-Za-z]\d{4}$/, 
-                    msg: "Só é possível inserir 1 letra maiuscula e 4 digitos númericos"
-                }
-            }
         },
         papel: {
             type: DataTypes.ENUM("colaborador", "ti", "admin"),

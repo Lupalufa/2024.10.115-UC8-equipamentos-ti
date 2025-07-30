@@ -6,17 +6,18 @@ module.exports = {
 
     await queryInterface.createTable('setor', {
       id: {
-        type: DataTypes.STRING,
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
         primaryKey: true
       },
       nome: {
-        type: DataTypes.STRING(120),
+        type: Sequelize.STRING(120),
         allowNull: false,
         unique: true
       },
 
       descricao: {
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
         allowNull: true
       }
     });

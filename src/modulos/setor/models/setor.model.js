@@ -5,8 +5,9 @@ const SetorModel = sequelize.define(
     'Setor',
     {
         id: {
-            type: DataTypes.STRING,
-            primaryKey:true
+            type: DataTypes.UUID,
+            defaultValue: DataTypes.UUIDV4,
+            primaryKey: true
         },
         nome: {
             type: DataTypes.STRING(120),

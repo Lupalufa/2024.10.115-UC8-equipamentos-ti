@@ -6,37 +6,37 @@ module.exports = {
 
     await queryInterface.createTable('equipamento', {
       equipamento_nome: {
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
         allowNull: false
       },
       tipo: {
-        type: DataTypes.ENUM("notebook", "desktop", "impressora"),
+        type: Sequelize.ENUM("notebook", "desktop", "impressora"),
         allowNull: false,
       },
       numero_patrimonio: {
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
         primaryKey: true,
       },
       usuario_responsavel: {
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
         allowNull: false,
         references: {
           model: 'usuario',
-          key: 'id'
+          key: 'email'
         },
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
       },
       status: {
-        type: DataTypes.ENUM('ativo', 'manutenção', 'desativado'),
+        type: Sequelize.ENUM('ativo', 'manutenção', 'desativado'),
         allowNull: false,
       },
       setorId: {
-        type: DataTypes.STRING,
+        type: Sequelize.UUID,
         allowNull: false,
         references: {
           model: 'setor',
-          key: 'nome'
+          key: 'id'
         },
         onUpdate: 'CASCADE'
       }
