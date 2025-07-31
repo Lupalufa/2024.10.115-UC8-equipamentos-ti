@@ -32,11 +32,11 @@ module.exports = {
         allowNull: false,
       },
       setorId: {
-        type: Sequelize.UUID,
+        type: Sequelize.STRING,
         allowNull: false,
         references: {
           model: 'setor',
-          key: 'id'
+          key: 'nome'
         },
         onUpdate: 'CASCADE'
       }

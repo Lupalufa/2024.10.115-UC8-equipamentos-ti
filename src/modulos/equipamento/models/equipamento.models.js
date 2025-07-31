@@ -50,11 +50,11 @@ const Equipamento = sequelize.define(
             }
         },
         setorId: {
-            type: DataTypes.UUID,
+            type: DataTypes.STRING,
             allowNull: false,
             references: {
                 model: 'setor',
-                key: 'id'
+                key: 'nome'
             },
             onUpdate: 'CASCADE'
         }

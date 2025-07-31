@@ -10,7 +10,7 @@ module.exports = {
           numero_patrimonio: 'NB-000001',
           usuario_responsavel: 'gabriela.dias@email.com',
           status: 'ativo',
-          setorId: '11111111-1111-1111-1111-111111111111',
+          setorId: 'Logística',
           criado_em: new Date(),
           atualizado_em: new Date()
         },
@@ -20,7 +20,7 @@ module.exports = {
           numero_patrimonio: 'DT-000002',
           usuario_responsavel: 'daniel.costa@email.com',
           status: 'manutenção',
-          setorId: '22222222-2222-2222-2222-222222222222',
+          setorId: 'Logística',
           criado_em: new Date(),
           atualizado_em: new Date()
         },
@@ -30,7 +30,7 @@ module.exports = {
           numero_patrimonio: 'IM-000003',
           usuario_responsavel: 'alice.silva@email.com',
           status: 'ativo',
-          setorId: '33333333-3333-3333-3333-333333333333',
+          setorId: 'Jurídico',
           criado_em: new Date(),
           atualizado_em: new Date()
         },
@@ -40,7 +40,7 @@ module.exports = {
           numero_patrimonio: 'NB-000004',
           usuario_responsavel: 'alice.silva@email.com',
           status: 'desativado',
-          setorId: '44444444-4444-4444-4444-444444444444',
+          setorId: 'Compras',
           criado_em: new Date(),
           atualizado_em: new Date()
         },
@@ -50,7 +50,7 @@ module.exports = {
           numero_patrimonio: 'DT-000005',
           usuario_responsavel: 'henrique.melo@email.com',
           status: 'ativo',
-          setorId: '55555555-5555-5555-5555-555555555555',
+          setorId: 'Atendimento ao Cliente',
           criado_em: new Date(),
           atualizado_em: new Date()
         },
@@ -60,7 +60,7 @@ module.exports = {
           numero_patrimonio: 'IM-000006',
           usuario_responsavel: 'isabela.martins@email.com',
           status: 'manutenção',
-          setorId: '66666666-6666-6666-6666-666666666666',
+          setorId: 'Recursos Humanos',
           criado_em: new Date(),
           atualizado_em: new Date()
         },
@@ -70,7 +70,7 @@ module.exports = {
           numero_patrimonio: 'NB-000007',
           usuario_responsavel: 'joao.pedro@email.com',
           status: 'ativo',
-          setorId: '77777777-7777-7777-7777-777777777777',
+          setorId: 'Recursos Humanos',
           criado_em: new Date(),
           atualizado_em: new Date()
         },
@@ -80,7 +80,7 @@ module.exports = {
           numero_patrimonio: 'DT-000008',
           usuario_responsavel: 'bruno.souza@email.com',
           status: 'desativado',
-          setorId: '88888888-8888-8888-8888-888888888888',
+          setorId: 'Recursos Humanos',
           criado_em: new Date(),
           atualizado_em: new Date()
         },
@@ -90,7 +90,7 @@ module.exports = {
           numero_patrimonio: 'IM-000009',
           usuario_responsavel: 'carla.lima@email.com',
           status: 'ativo',
-          setorId: '99999999-9999-9999-9999-999999999999',
+          setorId: 'Recursos Humanos',
           criado_em: new Date(),
           atualizado_em: new Date()
         },
@@ -100,7 +100,7 @@ module.exports = {
           numero_patrimonio: 'NB-000010',
           usuario_responsavel: 'daniel.costa@email.com',
           status: 'manutenção',
-          setorId: 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa',
+          setorId: 'Recursos Humanos',
           criado_em: new Date(),
           atualizado_em: new Date()
         }
