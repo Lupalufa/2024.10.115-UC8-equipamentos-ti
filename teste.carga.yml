@@ -1,0 +1,42 @@
+config:
+  target: "http://localhost:3000"
+  phases:
+    - duration: 30
+      arrivalRate: 5
+scenarios:
+  - flow:
+          - post:
+              url: "/api/cadastrar"
+              json:
+                nome: "João Silva"
+                email: "joao.silva@email.com"
+                senha: "MinhaSenh@123"
+                papel: "colaborador"
+                capture:
+                  - json: "$.usuario.id"
+                    as: 'usuario_id'
+
+          - post:
+              url: "/api/login"
+              json:
+                email: "joao.silva@email.com"
+                senha: "MinhaSenh@123"
+              capture:
+                - json: "$.token"
+                  as: "token"
+
+          - get:
+              url: "/api/perfil"
+              headers:
+                Authorization: "Bearer {{ token }}"
+
+          - post:
+              url: "/api/cadastrar"
+              json:
+                nome: "Maria Santos"
+                email: "maria.santos@email.com"
+                senha: "SenhaForte#456"
+                papel: "ti"
+                capture:
+                  - json: "$.usuario.id"
+                    as: '_id'
